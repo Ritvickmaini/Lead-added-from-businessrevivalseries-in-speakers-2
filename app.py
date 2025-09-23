@@ -4,7 +4,7 @@ import re
 from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
-
+import time
 # ----------------- CONFIG -----------------
 IMAP_SERVER = "mail.b2bgrowthexpo.com"
 IMAP_USER = "speakermanagement@b2bgrowthexpo.com"
@@ -143,5 +143,9 @@ def process_emails(leads):
 
 # ----------------- RUN -----------------
 if __name__ == "__main__":
-    leads = fetch_emails()
-    process_emails(leads)
+    while True:
+        print(f"⏱ Running email fetch at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",flush=True)
+        leads = fetch_emails()
+        process_emails(leads)
+        print("💤 Sleeping for 1 hour...\n",flush=True)
+        time.sleep(3600)  # wait 1 hour before next run

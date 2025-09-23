@@ -1,4 +1,4 @@
-gspread==6.11.1
+gspread==6.2.1
 google-auth==2.22.0
 google-auth-oauthlib==1.2.0
 google-api-python-client==2.93.0

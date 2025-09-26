@@ -60,7 +60,7 @@ def parse_details(body):
 def get_existing_emails():
     """Fetch all emails from sheet for duplicate check."""
     try:
-        all_emails = sheet.col_values(13)  # "Email" column index (13th)
+        all_emails = sheet.col_values(7)  # "Email" column index (7th)
         return set([e.lower().strip() for e in all_emails if e])  # normalize
     except Exception as e:
         print(f"❌ Error fetching existing emails: {e}")
@@ -112,22 +112,26 @@ def process_emails(leads):
             continue
 
         row = [
-            datetime.now().strftime("%Y-%m-%d"),  # Lead Date
-            "Businessrevivalseries",  # Lead Source
-            details["First Name"],  # First_Name
-            details["Last Name"],  # Last Name
-            "",  # Email Sent-Date
-            "",  # Reply Status
-            details["Business Name"],  # Company Name
-            "",  # Designation
-            "Speaker_opportunity",  # Interested In?
-            "",  # Comments
-            "",  # Next Followup
-            details["Mobile Number"],  # Mobile
-            email_value,  # Email
-            details["Which event are you interested in"],  # Show
-            details["Business linkedln page or Website"],  # Company Linkedin Page
-            details["LinkedIn Profile Link"],  # Personal Linkedin Page
+            datetime.now().strftime("%Y-%m-%d"),      # Lead Date
+            "Businessrevivalseries",                  # Lead Source
+            details["First Name"],                    # First_Name
+            details["Last Name"],                     # Last Name
+            details["Business Name"],                 # Company Name
+            details["Mobile Number"],                 # Mobile
+            email_value,                              # Email
+           details["Which event are you interested in"], # Show
+           "",                                       # Next Followup
+           "",                                       # Call Attempt
+           "",                                       # WhatsApp msg count
+           "",                                       # Linkedin Msg Count
+           "",                                       # Comments
+           "",                                       # Pitch Deck URL
+           "Speaker_opportunity",                     # Interested In?
+           "",                                       # Email Sent-Date
+           "",                                       # Reply Status
+           "",                                       # Designation
+          details["Business linkedln page or Website"], # Company Linkedin Page
+          details["LinkedIn Profile Link"]          # Personal Linkedin Page
         ]
 
         new_rows.append(row)

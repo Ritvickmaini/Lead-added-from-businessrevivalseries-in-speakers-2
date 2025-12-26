@@ -122,8 +122,10 @@ def process_emails(leads):
            details["Which event are you interested in"], # Show
            "",                                       # Next Followup
            "",                                       # Call Attempt
+           "",                                       #Email-Count
            "",                                       # WhatsApp msg count
-           "",                                       # Linkedin Msg Count
+           "",                                       # Linkedin Msg 
+           "",                                       #Meeting-Booked
            "",                                       # Comments
            "",                                       # Pitch Deck URL
            "Speaker_opportunity",                     # Interested In?
